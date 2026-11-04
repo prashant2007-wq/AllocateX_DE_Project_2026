@@ -1,0 +1,11 @@
+{
+  "team_number": "T0037",
+  "group_lead": { "name": "Prashant S Bisht", "enrollment_no": "2501010346", "github": "prashant2007-wq" },
+  "members": [
+    { "name": "Boiri Aditya", "enrollment_no": "2501010118", "github": "Boiri-Aditya" },
+    { "name": "Shreyas Hemant Mohite", "enrollment_no": "2501010550", "github": "Shreyas221105" },
+    { "name": "Parth Bhaskar", "enrollment_no": "2501010323", "github": "incogparth" }
+  ],
+  "postgres_version": "18.6",
+  "laptop_used_for_benchmarks": "MacBook Pro, Apple M4, 16GB RAM"
+}
