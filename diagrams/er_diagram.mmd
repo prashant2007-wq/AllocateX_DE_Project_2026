@@ -1,0 +1,14 @@
+erDiagram
+  LANGUAGES ||--o{ COURSES : "from_lang"
+  LANGUAGES ||--o{ COURSES : "learning_lang"
+  COURSES ||--o{ UNITS : contains
+  UNITS ||--o{ LESSONS : contains
+  LEARNERS ||--o{ ENROLLMENTS : has
+  COURSES ||--o{ ENROLLMENTS : "taken in"
+  LEARNERS ||--o{ LESSON_ATTEMPTS : makes
+  LESSONS ||--o{ LESSON_ATTEMPTS : "attempted in"
+  LEARNERS ||--o{ DAILY_ACTIVITY : logs
+  LEARNERS ||--o{ LEAGUE_MEMBERSHIPS : "competes in"
+  LEARNERS ||--o{ LEARNER_ACHIEVEMENTS : earns
+  ACHIEVEMENTS ||--o{ LEARNER_ACHIEVEMENTS : "awarded as"
+  LEARNERS |o--o{ LEARNERS : "refers"
