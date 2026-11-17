@@ -1,0 +1,24 @@
+=== R11 run 1 ===
+Index Scan using learners_username_key on learners  (cost=0.29..8.30 rows=1 width=37) (actual time=0.034..0.034 rows=1 loops=1)
+  Index Cond: ((username)::text = 'Karan_xVerma1042'::text)
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=105
+Planning Time: 0.332 ms
+Execution Time: 0.058 ms
+=== R11 run 2 ===
+Index Scan using learners_username_key on learners  (cost=0.29..8.30 rows=1 width=37) (actual time=0.036..0.037 rows=1 loops=1)
+  Index Cond: ((username)::text = 'Karan_xVerma1042'::text)
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=105
+Planning Time: 0.385 ms
+Execution Time: 0.063 ms
+=== R11 run 3 ===
+Index Scan using learners_username_key on learners  (cost=0.29..8.30 rows=1 width=37) (actual time=0.031..0.031 rows=1 loops=1)
+  Index Cond: ((username)::text = 'Karan_xVerma1042'::text)
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=105
+Planning Time: 0.369 ms
+Execution Time: 0.053 ms

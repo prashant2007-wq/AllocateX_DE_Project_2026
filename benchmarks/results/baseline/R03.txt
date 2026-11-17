@@ -1,0 +1,66 @@
+=== R03 run 1 ===
+Aggregate  (cost=5.02..5.03 rows=1 width=12) (actual time=0.285..0.286 rows=1 loops=1)
+  Buffers: shared hit=4
+  CTE days
+    ->  WindowAgg  (cost=0.42..4.70 rows=7 width=8) (actual time=0.199..0.235 rows=39 loops=1)
+          Buffers: shared hit=4
+          ->  Index Only Scan using daily_activity_pkey on daily_activity  (cost=0.42..4.56 rows=7 width=4) (actual time=0.179..0.187 rows=39 loops=1)
+                Index Cond: ((learner_id = 1042) AND (activity_date <= '2026-06-30'::date))
+                Heap Fetches: 0
+                Buffers: shared hit=4
+  InitPlan 2 (returns $1)
+    ->  CTE Scan on days days_1  (cost=0.00..0.16 rows=1 width=4) (actual time=0.052..0.053 rows=1 loops=1)
+          Filter: (activity_date = '2026-06-30'::date)
+          Rows Removed by Filter: 38
+  ->  CTE Scan on days  (cost=0.00..0.16 rows=1 width=4) (actual time=0.258..0.265 rows=32 loops=1)
+        Filter: (grp = $1)
+        Rows Removed by Filter: 7
+        Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=94
+Planning Time: 0.873 ms
+Execution Time: 0.408 ms
+=== R03 run 2 ===
+Aggregate  (cost=5.02..5.03 rows=1 width=12) (actual time=0.103..0.103 rows=1 loops=1)
+  Buffers: shared hit=4
+  CTE days
+    ->  WindowAgg  (cost=0.42..4.70 rows=7 width=8) (actual time=0.070..0.084 rows=39 loops=1)
+          Buffers: shared hit=4
+          ->  Index Only Scan using daily_activity_pkey on daily_activity  (cost=0.42..4.56 rows=7 width=4) (actual time=0.061..0.064 rows=39 loops=1)
+                Index Cond: ((learner_id = 1042) AND (activity_date <= '2026-06-30'::date))
+                Heap Fetches: 0
+                Buffers: shared hit=4
+  InitPlan 2 (returns $1)
+    ->  CTE Scan on days days_1  (cost=0.00..0.16 rows=1 width=4) (actual time=0.019..0.020 rows=1 loops=1)
+          Filter: (activity_date = '2026-06-30'::date)
+          Rows Removed by Filter: 38
+  ->  CTE Scan on days  (cost=0.00..0.16 rows=1 width=4) (actual time=0.092..0.095 rows=32 loops=1)
+        Filter: (grp = $1)
+        Rows Removed by Filter: 7
+        Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=94
+Planning Time: 0.587 ms
+Execution Time: 0.160 ms
+=== R03 run 3 ===
+Aggregate  (cost=5.02..5.03 rows=1 width=12) (actual time=0.253..0.254 rows=1 loops=1)
+  Buffers: shared hit=4
+  CTE days
+    ->  WindowAgg  (cost=0.42..4.70 rows=7 width=8) (actual time=0.170..0.206 rows=39 loops=1)
+          Buffers: shared hit=4
+          ->  Index Only Scan using daily_activity_pkey on daily_activity  (cost=0.42..4.56 rows=7 width=4) (actual time=0.150..0.158 rows=39 loops=1)
+                Index Cond: ((learner_id = 1042) AND (activity_date <= '2026-06-30'::date))
+                Heap Fetches: 0
+                Buffers: shared hit=4
+  InitPlan 2 (returns $1)
+    ->  CTE Scan on days days_1  (cost=0.00..0.16 rows=1 width=4) (actual time=0.051..0.052 rows=1 loops=1)
+          Filter: (activity_date = '2026-06-30'::date)
+          Rows Removed by Filter: 38
+  ->  CTE Scan on days  (cost=0.00..0.16 rows=1 width=4) (actual time=0.228..0.236 rows=32 loops=1)
+        Filter: (grp = $1)
+        Rows Removed by Filter: 7
+        Buffers: shared hit=4
+Planning:
+  Buffers: shared hit=94
+Planning Time: 0.905 ms
+Execution Time: 0.387 ms

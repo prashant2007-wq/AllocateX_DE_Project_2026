@@ -1,0 +1,108 @@
+=== R08 run 1 ===
+Sort  (cost=5042.15..5042.16 rows=4 width=46) (actual time=32.230..33.717 rows=4 loops=1)
+  Sort Key: (round(((100.0 * (count(*) FILTER (WHERE (a.completed_at IS NULL)))::numeric) / (count(*))::numeric), 2)) DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=1809
+  ->  Finalize GroupAggregate  (cost=5041.53..5042.11 rows=4 width=46) (actual time=32.217..33.708 rows=4 loops=1)
+        Group Key: l.lesson_type
+        Buffers: shared hit=1806
+        ->  Gather Merge  (cost=5041.53..5041.99 rows=4 width=22) (actual time=32.206..33.695 rows=8 loops=1)
+              Workers Planned: 1
+              Workers Launched: 1
+              Buffers: shared hit=1806
+              ->  Sort  (cost=4041.52..4041.53 rows=4 width=22) (actual time=30.547..30.548 rows=4 loops=2)
+                    Sort Key: l.lesson_type
+                    Sort Method: quicksort  Memory: 25kB
+                    Buffers: shared hit=1806
+                    Worker 0:  Sort Method: quicksort  Memory: 25kB
+                    ->  Partial HashAggregate  (cost=4041.44..4041.48 rows=4 width=22) (actual time=30.522..30.523 rows=4 loops=2)
+                          Group Key: l.lesson_type
+                          Batches: 1  Memory Usage: 24kB
+                          Buffers: shared hit=1798
+                          Worker 0:  Batches: 1  Memory Usage: 24kB
+                          ->  Hash Join  (cost=51.60..3210.71 rows=110765 width=14) (actual time=0.372..19.782 rows=94150 loops=2)
+                                Hash Cond: (a.lesson_id = l.lesson_id)
+                                Buffers: shared hit=1798
+                                ->  Parallel Seq Scan on lesson_attempts a  (cost=0.00..2867.65 rows=110765 width=12) (actual time=0.004..4.742 rows=94150 loops=2)
+                                      Buffers: shared hit=1760
+                                ->  Hash  (cost=29.60..29.60 rows=1760 width=10) (actual time=0.350..0.350 rows=1760 loops=2)
+                                      Buckets: 2048  Batches: 1  Memory Usage: 94kB
+                                      Buffers: shared hit=24
+                                      ->  Seq Scan on lessons l  (cost=0.00..29.60 rows=1760 width=10) (actual time=0.022..0.179 rows=1760 loops=2)
+                                            Buffers: shared hit=24
+Planning:
+  Buffers: shared hit=225
+Planning Time: 0.595 ms
+Execution Time: 33.790 ms
+=== R08 run 2 ===
+Sort  (cost=5042.15..5042.16 rows=4 width=46) (actual time=31.908..33.487 rows=4 loops=1)
+  Sort Key: (round(((100.0 * (count(*) FILTER (WHERE (a.completed_at IS NULL)))::numeric) / (count(*))::numeric), 2)) DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=1809
+  ->  Finalize GroupAggregate  (cost=5041.53..5042.11 rows=4 width=46) (actual time=31.887..33.471 rows=4 loops=1)
+        Group Key: l.lesson_type
+        Buffers: shared hit=1806
+        ->  Gather Merge  (cost=5041.53..5041.99 rows=4 width=22) (actual time=31.874..33.455 rows=8 loops=1)
+              Workers Planned: 1
+              Workers Launched: 1
+              Buffers: shared hit=1806
+              ->  Sort  (cost=4041.52..4041.53 rows=4 width=22) (actual time=30.288..30.290 rows=4 loops=2)
+                    Sort Key: l.lesson_type
+                    Sort Method: quicksort  Memory: 25kB
+                    Buffers: shared hit=1806
+                    Worker 0:  Sort Method: quicksort  Memory: 25kB
+                    ->  Partial HashAggregate  (cost=4041.44..4041.48 rows=4 width=22) (actual time=30.251..30.253 rows=4 loops=2)
+                          Group Key: l.lesson_type
+                          Batches: 1  Memory Usage: 24kB
+                          Buffers: shared hit=1798
+                          Worker 0:  Batches: 1  Memory Usage: 24kB
+                          ->  Hash Join  (cost=51.60..3210.71 rows=110765 width=14) (actual time=0.328..19.648 rows=94150 loops=2)
+                                Hash Cond: (a.lesson_id = l.lesson_id)
+                                Buffers: shared hit=1798
+                                ->  Parallel Seq Scan on lesson_attempts a  (cost=0.00..2867.65 rows=110765 width=12) (actual time=0.003..4.602 rows=94150 loops=2)
+                                      Buffers: shared hit=1760
+                                ->  Hash  (cost=29.60..29.60 rows=1760 width=10) (actual time=0.311..0.312 rows=1760 loops=2)
+                                      Buckets: 2048  Batches: 1  Memory Usage: 94kB
+                                      Buffers: shared hit=24
+                                      ->  Seq Scan on lessons l  (cost=0.00..29.60 rows=1760 width=10) (actual time=0.017..0.151 rows=1760 loops=2)
+                                            Buffers: shared hit=24
+Planning:
+  Buffers: shared hit=225
+Planning Time: 0.608 ms
+Execution Time: 33.567 ms
+=== R08 run 3 ===
+Sort  (cost=5042.15..5042.16 rows=4 width=46) (actual time=33.998..35.507 rows=4 loops=1)
+  Sort Key: (round(((100.0 * (count(*) FILTER (WHERE (a.completed_at IS NULL)))::numeric) / (count(*))::numeric), 2)) DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=1809
+  ->  Finalize GroupAggregate  (cost=5041.53..5042.11 rows=4 width=46) (actual time=33.984..35.498 rows=4 loops=1)
+        Group Key: l.lesson_type
+        Buffers: shared hit=1806
+        ->  Gather Merge  (cost=5041.53..5041.99 rows=4 width=22) (actual time=33.973..35.484 rows=8 loops=1)
+              Workers Planned: 1
+              Workers Launched: 1
+              Buffers: shared hit=1806
+              ->  Sort  (cost=4041.52..4041.53 rows=4 width=22) (actual time=32.197..32.198 rows=4 loops=2)
+                    Sort Key: l.lesson_type
+                    Sort Method: quicksort  Memory: 25kB
+                    Buffers: shared hit=1806
+                    Worker 0:  Sort Method: quicksort  Memory: 25kB
+                    ->  Partial HashAggregate  (cost=4041.44..4041.48 rows=4 width=22) (actual time=32.172..32.173 rows=4 loops=2)
+                          Group Key: l.lesson_type
+                          Batches: 1  Memory Usage: 24kB
+                          Buffers: shared hit=1798
+                          Worker 0:  Batches: 1  Memory Usage: 24kB
+                          ->  Hash Join  (cost=51.60..3210.71 rows=110765 width=14) (actual time=0.344..20.625 rows=94150 loops=2)
+                                Hash Cond: (a.lesson_id = l.lesson_id)
+                                Buffers: shared hit=1798
+                                ->  Parallel Seq Scan on lesson_attempts a  (cost=0.00..2867.65 rows=110765 width=12) (actual time=0.003..5.035 rows=94150 loops=2)
+                                      Buffers: shared hit=1760
+                                ->  Hash  (cost=29.60..29.60 rows=1760 width=10) (actual time=0.326..0.326 rows=1760 loops=2)
+                                      Buckets: 2048  Batches: 1  Memory Usage: 94kB
+                                      Buffers: shared hit=24
+                                      ->  Seq Scan on lessons l  (cost=0.00..29.60 rows=1760 width=10) (actual time=0.019..0.164 rows=1760 loops=2)
+                                            Buffers: shared hit=24
+Planning:
+  Buffers: shared hit=225
+Planning Time: 0.638 ms
+Execution Time: 35.582 ms

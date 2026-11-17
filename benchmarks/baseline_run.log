@@ -1,0 +1,32 @@
+R01  READ  avg     0.277 ms   Seq Scan on units | Seq Scan on courses | Index Scan using uq_lesson_no on lessons
+R02  READ  avg     0.130 ms   Index Scan using enrollments_pkey on enrollments | Seq Scan on courses
+R03  READ  avg     0.318 ms   Index Only Scan using daily_activity_pkey on daily_activity
+R04  READ  avg    13.686 ms   Index Scan using learners_pkey on learners | Seq Scan on lesson_attempts
+R05  READ  avg     3.473 ms   Index Scan using league_memberships_pkey on league_memberships | Seq Scan on league_memberships | Index Scan using learners_pkey on learners
+R06  READ  avg    17.179 ms   Index Scan using uq_unit_no on units | Index Scan using uq_lesson_no on lessons | Seq Scan on lesson_attempts
+R07  READ  avg    34.297 ms   Seq Scan on lesson_attempts | Seq Scan on lessons | Seq Scan on units
+R08  READ  avg    34.313 ms   Seq Scan on lesson_attempts | Seq Scan on lessons
+R09  READ  avg    13.457 ms   Seq Scan on daily_activity
+R10  READ  avg    12.613 ms   Seq Scan on daily_activity | Index Scan using learners_pkey on learners
+R11  READ  avg     0.058 ms   Index Scan using learners_username_key on learners
+R12  READ  avg     0.184 ms   Index Scan using learner_achievements_pkey on learner_achievements | Seq Scan on achievements
+R13  READ  avg    15.309 ms   Seq Scan on learners
+R14  READ  avg     6.264 ms   Seq Scan on league_memberships
+R15  READ  avg     5.694 ms   Seq Scan on learners | Index Scan using daily_activity_pkey on daily_activity
+R16  READ  avg    10.485 ms   Index Scan using learners_username_key on learners
+R17  READ  avg    31.780 ms   Seq Scan on lesson_attempts
+R18  READ  avg    11.290 ms   Seq Scan on enrollments | Seq Scan on courses
+R19  READ  avg  3647.898 ms   Index Scan using uq_unit_no on units | Index Scan using uq_lesson_no on lessons | Seq Scan on lesson_attempts
+R20  READ  avg    15.229 ms   Seq Scan on lesson_attempts
+R21  READ  avg     4.847 ms   Index Only Scan using daily_activity_pkey on daily_activity
+R22  READ  avg    71.431 ms   Seq Scan on lesson_attempts
+R23  READ  avg    14.513 ms   Seq Scan on daily_activity | Seq Scan on learners
+R24  READ  avg    46.432 ms   Seq Scan on lesson_attempts | Seq Scan on lessons | Seq Scan on units
+R25  READ  avg   230.338 ms   Seq Scan on lesson_attempts | Seq Scan on learners
+W01  WRITE avg     0.929 ms   (no scan)
+W02  WRITE avg     1.129 ms   Index Scan using lesson_attempts_pkey on lesson_attempts
+W03  WRITE avg     1.733 ms   (no scan)
+W04  WRITE avg    15.659 ms   Seq Scan on league_memberships
+W05  WRITE avg    75.673 ms   Seq Scan on achievements | Seq Scan on enrollments
+Workload: /Users/prashantsbisht/AllocateX_DE_Project_2026/queries/workload_30.sql
+Saved raw plans and summary to /Users/prashantsbisht/AllocateX_DE_Project_2026/benchmarks/results/baseline

@@ -1,0 +1,84 @@
+=== R05 run 1 ===
+Sort  (cost=703.24..703.24 rows=1 width=33) (actual time=4.194..4.198 rows=30 loops=1)
+  Sort Key: (rank() OVER (?))
+  Sort Method: quicksort  Memory: 27kB
+  Buffers: shared hit=346
+  InitPlan 1 (returns $0)
+    ->  Index Scan using league_memberships_pkey on league_memberships  (cost=0.29..8.31 rows=1 width=4) (actual time=0.015..0.023 rows=1 loops=1)
+          Index Cond: ((learner_id = 1042) AND (week_start = '2026-06-29'::date))
+          Buffers: shared hit=5
+  ->  WindowAgg  (cost=694.90..694.92 rows=1 width=33) (actual time=4.148..4.170 rows=30 loops=1)
+        Buffers: shared hit=343
+        ->  Sort  (cost=694.90..694.91 rows=1 width=25) (actual time=4.110..4.116 rows=30 loops=1)
+              Sort Key: lm.weekly_xp DESC
+              Sort Method: quicksort  Memory: 27kB
+              Buffers: shared hit=343
+              ->  Nested Loop  (cost=0.29..694.89 rows=1 width=25) (actual time=0.290..4.087 rows=30 loops=1)
+                    Buffers: shared hit=340
+                    ->  Seq Scan on league_memberships lm  (cost=0.00..686.59 rows=1 width=8) (actual time=0.274..4.033 rows=30 loops=1)
+                          Filter: ((week_start = '2026-06-29'::date) AND (cohort_id = $0))
+                          Rows Removed by Filter: 28568
+                          Buffers: shared hit=250
+                    ->  Index Scan using learners_pkey on learners le  (cost=0.29..8.30 rows=1 width=21) (actual time=0.001..0.001 rows=1 loops=30)
+                          Index Cond: (learner_id = lm.learner_id)
+                          Buffers: shared hit=90
+Planning:
+  Buffers: shared hit=200
+Planning Time: 1.336 ms
+Execution Time: 4.291 ms
+=== R05 run 2 ===
+Sort  (cost=703.24..703.24 rows=1 width=33) (actual time=2.848..2.851 rows=30 loops=1)
+  Sort Key: (rank() OVER (?))
+  Sort Method: quicksort  Memory: 27kB
+  Buffers: shared hit=346
+  InitPlan 1 (returns $0)
+    ->  Index Scan using league_memberships_pkey on league_memberships  (cost=0.29..8.31 rows=1 width=4) (actual time=0.011..0.018 rows=1 loops=1)
+          Index Cond: ((learner_id = 1042) AND (week_start = '2026-06-29'::date))
+          Buffers: shared hit=5
+  ->  WindowAgg  (cost=694.90..694.92 rows=1 width=33) (actual time=2.815..2.832 rows=30 loops=1)
+        Buffers: shared hit=343
+        ->  Sort  (cost=694.90..694.91 rows=1 width=25) (actual time=2.802..2.805 rows=30 loops=1)
+              Sort Key: lm.weekly_xp DESC
+              Sort Method: quicksort  Memory: 27kB
+              Buffers: shared hit=343
+              ->  Nested Loop  (cost=0.29..694.89 rows=1 width=25) (actual time=0.243..2.782 rows=30 loops=1)
+                    Buffers: shared hit=340
+                    ->  Seq Scan on league_memberships lm  (cost=0.00..686.59 rows=1 width=8) (actual time=0.227..2.729 rows=30 loops=1)
+                          Filter: ((week_start = '2026-06-29'::date) AND (cohort_id = $0))
+                          Rows Removed by Filter: 28568
+                          Buffers: shared hit=250
+                    ->  Index Scan using learners_pkey on learners le  (cost=0.29..8.30 rows=1 width=21) (actual time=0.001..0.001 rows=1 loops=30)
+                          Index Cond: (learner_id = lm.learner_id)
+                          Buffers: shared hit=90
+Planning:
+  Buffers: shared hit=200
+Planning Time: 1.294 ms
+Execution Time: 2.932 ms
+=== R05 run 3 ===
+Sort  (cost=703.24..703.24 rows=1 width=33) (actual time=3.110..3.113 rows=30 loops=1)
+  Sort Key: (rank() OVER (?))
+  Sort Method: quicksort  Memory: 27kB
+  Buffers: shared hit=346
+  InitPlan 1 (returns $0)
+    ->  Index Scan using league_memberships_pkey on league_memberships  (cost=0.29..8.31 rows=1 width=4) (actual time=0.011..0.018 rows=1 loops=1)
+          Index Cond: ((learner_id = 1042) AND (week_start = '2026-06-29'::date))
+          Buffers: shared hit=5
+  ->  WindowAgg  (cost=694.90..694.92 rows=1 width=33) (actual time=3.074..3.092 rows=30 loops=1)
+        Buffers: shared hit=343
+        ->  Sort  (cost=694.90..694.91 rows=1 width=25) (actual time=3.054..3.057 rows=30 loops=1)
+              Sort Key: lm.weekly_xp DESC
+              Sort Method: quicksort  Memory: 27kB
+              Buffers: shared hit=343
+              ->  Nested Loop  (cost=0.29..694.89 rows=1 width=25) (actual time=0.242..3.035 rows=30 loops=1)
+                    Buffers: shared hit=340
+                    ->  Seq Scan on league_memberships lm  (cost=0.00..686.59 rows=1 width=8) (actual time=0.227..2.984 rows=30 loops=1)
+                          Filter: ((week_start = '2026-06-29'::date) AND (cohort_id = $0))
+                          Rows Removed by Filter: 28568
+                          Buffers: shared hit=250
+                    ->  Index Scan using learners_pkey on learners le  (cost=0.29..8.30 rows=1 width=21) (actual time=0.001..0.001 rows=1 loops=30)
+                          Index Cond: (learner_id = lm.learner_id)
+                          Buffers: shared hit=90
+Planning:
+  Buffers: shared hit=200
+Planning Time: 1.187 ms
+Execution Time: 3.196 ms

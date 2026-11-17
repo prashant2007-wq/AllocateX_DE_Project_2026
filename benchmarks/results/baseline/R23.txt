@@ -1,0 +1,78 @@
+=== R23 run 1 ===
+GroupAggregate  (cost=4732.17..4734.46 rows=3 width=13) (actual time=14.414..14.455 rows=2 loops=1)
+  Group Key: l.subscription
+  Buffers: shared hit=1397
+  ->  Sort  (cost=4732.17..4732.92 rows=301 width=9) (actual time=14.375..14.385 rows=280 loops=1)
+        Sort Key: l.subscription
+        Sort Method: quicksort  Memory: 38kB
+        Buffers: shared hit=1394
+        ->  Hash Join  (cost=851.21..4719.78 rows=301 width=9) (actual time=4.199..14.325 rows=280 loops=1)
+              Hash Cond: (d.learner_id = l.learner_id)
+              Buffers: shared hit=1391
+              ->  Seq Scan on daily_activity d  (cost=0.00..3859.63 rows=3403 width=4) (actual time=0.021..9.843 rows=3354 loops=1)
+                    Filter: ((activity_date >= '2026-06-24'::date) AND (xp > 0))
+                    Rows Removed by Filter: 185755
+                    Buffers: shared hit=1023
+              ->  Hash  (cost=818.00..818.00 rows=2657 width=9) (actual time=4.112..4.113 rows=2679 loops=1)
+                    Buckets: 4096  Batches: 1  Memory Usage: 146kB
+                    Buffers: shared hit=368
+                    ->  Seq Scan on learners l  (cost=0.00..818.00 rows=2657 width=9) (actual time=0.007..3.848 rows=2679 loops=1)
+                          Filter: (((subscription)::text = ANY ('{SUPER,MAX}'::text[])) AND (country_code = 'IN'::bpchar))
+                          Rows Removed by Filter: 27321
+                          Buffers: shared hit=368
+Planning:
+  Buffers: shared hit=248
+Planning Time: 1.038 ms
+Execution Time: 14.517 ms
+=== R23 run 2 ===
+GroupAggregate  (cost=4732.17..4734.46 rows=3 width=13) (actual time=14.375..14.419 rows=2 loops=1)
+  Group Key: l.subscription
+  Buffers: shared hit=1397
+  ->  Sort  (cost=4732.17..4732.92 rows=301 width=9) (actual time=14.328..14.339 rows=280 loops=1)
+        Sort Key: l.subscription
+        Sort Method: quicksort  Memory: 38kB
+        Buffers: shared hit=1394
+        ->  Hash Join  (cost=851.21..4719.78 rows=301 width=9) (actual time=3.946..14.280 rows=280 loops=1)
+              Hash Cond: (d.learner_id = l.learner_id)
+              Buffers: shared hit=1391
+              ->  Seq Scan on daily_activity d  (cost=0.00..3859.63 rows=3403 width=4) (actual time=0.021..10.029 rows=3354 loops=1)
+                    Filter: ((activity_date >= '2026-06-24'::date) AND (xp > 0))
+                    Rows Removed by Filter: 185755
+                    Buffers: shared hit=1023
+              ->  Hash  (cost=818.00..818.00 rows=2657 width=9) (actual time=3.863..3.863 rows=2679 loops=1)
+                    Buckets: 4096  Batches: 1  Memory Usage: 146kB
+                    Buffers: shared hit=368
+                    ->  Seq Scan on learners l  (cost=0.00..818.00 rows=2657 width=9) (actual time=0.006..3.610 rows=2679 loops=1)
+                          Filter: (((subscription)::text = ANY ('{SUPER,MAX}'::text[])) AND (country_code = 'IN'::bpchar))
+                          Rows Removed by Filter: 27321
+                          Buffers: shared hit=368
+Planning:
+  Buffers: shared hit=248
+Planning Time: 0.695 ms
+Execution Time: 14.482 ms
+=== R23 run 3 ===
+GroupAggregate  (cost=4732.17..4734.46 rows=3 width=13) (actual time=14.425..14.467 rows=2 loops=1)
+  Group Key: l.subscription
+  Buffers: shared hit=1397
+  ->  Sort  (cost=4732.17..4732.92 rows=301 width=9) (actual time=14.387..14.397 rows=280 loops=1)
+        Sort Key: l.subscription
+        Sort Method: quicksort  Memory: 38kB
+        Buffers: shared hit=1394
+        ->  Hash Join  (cost=851.21..4719.78 rows=301 width=9) (actual time=4.288..14.334 rows=280 loops=1)
+              Hash Cond: (d.learner_id = l.learner_id)
+              Buffers: shared hit=1391
+              ->  Seq Scan on daily_activity d  (cost=0.00..3859.63 rows=3403 width=4) (actual time=0.025..9.770 rows=3354 loops=1)
+                    Filter: ((activity_date >= '2026-06-24'::date) AND (xp > 0))
+                    Rows Removed by Filter: 185755
+                    Buffers: shared hit=1023
+              ->  Hash  (cost=818.00..818.00 rows=2657 width=9) (actual time=4.193..4.193 rows=2679 loops=1)
+                    Buckets: 4096  Batches: 1  Memory Usage: 146kB
+                    Buffers: shared hit=368
+                    ->  Seq Scan on learners l  (cost=0.00..818.00 rows=2657 width=9) (actual time=0.007..3.931 rows=2679 loops=1)
+                          Filter: (((subscription)::text = ANY ('{SUPER,MAX}'::text[])) AND (country_code = 'IN'::bpchar))
+                          Rows Removed by Filter: 27321
+                          Buffers: shared hit=368
+Planning:
+  Buffers: shared hit=248
+Planning Time: 0.797 ms
+Execution Time: 14.540 ms

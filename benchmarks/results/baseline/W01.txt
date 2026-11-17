@@ -1,0 +1,30 @@
+=== W01 run 1 ===
+Insert on lesson_attempts  (cost=0.00..0.01 rows=0 width=0) (actual time=0.237..0.237 rows=0 loops=1)
+  Buffers: shared hit=57
+  ->  Result  (cost=0.00..0.01 rows=1 width=73) (actual time=0.002..0.003 rows=1 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.088 ms
+Trigger for constraint lesson_attempts_learner_id_fkey: time=0.483 calls=1
+Trigger for constraint lesson_attempts_lesson_id_fkey: time=0.217 calls=1
+Execution Time: 0.958 ms
+=== W01 run 2 ===
+Insert on lesson_attempts  (cost=0.00..0.01 rows=0 width=0) (actual time=0.232..0.233 rows=0 loops=1)
+  Buffers: shared hit=57
+  ->  Result  (cost=0.00..0.01 rows=1 width=73) (actual time=0.002..0.002 rows=1 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.067 ms
+Trigger for constraint lesson_attempts_learner_id_fkey: time=0.474 calls=1
+Trigger for constraint lesson_attempts_lesson_id_fkey: time=0.213 calls=1
+Execution Time: 0.937 ms
+=== W01 run 3 ===
+Insert on lesson_attempts  (cost=0.00..0.01 rows=0 width=0) (actual time=0.219..0.220 rows=0 loops=1)
+  Buffers: shared hit=57
+  ->  Result  (cost=0.00..0.01 rows=1 width=73) (actual time=0.003..0.003 rows=1 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.067 ms
+Trigger for constraint lesson_attempts_learner_id_fkey: time=0.448 calls=1
+Trigger for constraint lesson_attempts_lesson_id_fkey: time=0.208 calls=1
+Execution Time: 0.891 ms
