@@ -6,6 +6,6 @@
     { "name": "Shreyas Hemant Mohite", "enrollment_no": "2501010550", "github": "Shreyas221105" },
     { "name": "Parth Bhaskar", "enrollment_no": "2501010323", "github": "incogparth" }
   ],
-  "postgres_version": "18.6",
-  "laptop_used_for_benchmarks": "MacBook Pro, Apple M4, 16GB RAM"
+  "postgres_version": "PostgreSQL 14.20 (Homebrew)",
+  "laptop_used_for_benchmarks": "MacBook, Apple M4, macOS 27.2"
 }
