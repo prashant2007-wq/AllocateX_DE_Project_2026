@@ -1,0 +1,59 @@
+======================================================================
+RESULTS EQUIVALENCE CHECK  (Team T0037 – CP3)
+======================================================================
+
+--- R04 ---
+  Original row count : 1
+  Optimized row count: 1
+  Symmetric diff rows: 0
+  Result: PASS (diff must be 0)
+
+--- R10 ---
+  Original row count : 2
+  Optimized row count: 2
+  Symmetric diff rows: 0
+  Result: PASS (diff must be 0)
+
+--- R13 ---
+  Original row count : 0
+  Optimized row count: 24268
+  Symmetric diff rows: 24268
+  NOTE: R13 intentionally differs. Original returns 0 rows due to
+        NOT IN + NULL (SQL NULL-trap). Optimized uses NOT EXISTS.
+  5 sample rows from optimized R13:
+    130|Ishaan_xPatel130
+    181|KavyaGupta181
+    195|Nisha07Gupta195
+    211|Kabir07Singh211
+    243|Pooja07Mehta243
+    learner_id=130: learners referring to this id = 0  (must be 0)
+    learner_id=181: learners referring to this id = 0  (must be 0)
+    learner_id=195: learners referring to this id = 0  (must be 0)
+    learner_id=211: learners referring to this id = 0  (must be 0)
+    learner_id=243: learners referring to this id = 0  (must be 0)
+
+--- R16 ---
+  Original row count : 20
+  Optimized row count: 20
+  Symmetric diff rows: 0
+  Result: PASS (diff must be 0)
+
+--- R17 ---
+  Original row count : 3
+  Optimized row count: 3
+  Symmetric diff rows: 0
+  Result: PASS (diff must be 0)
+
+--- R19 ---
+  Original row count : 160
+  Optimized row count: 160
+  Symmetric diff rows: 0
+  Result: PASS (diff must be 0)
+
+--- R20 ---
+  Original row count : 30
+  Optimized row count: 30
+  Symmetric diff rows: 0
+  Result: PASS (diff must be 0)
+
+======================================================================
