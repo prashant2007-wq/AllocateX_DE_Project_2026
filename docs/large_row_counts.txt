@@ -1,0 +1,15 @@
+          t           |  count  
+----------------------+---------
+ languages            |      10
+ achievements         |      10
+ courses              |      11
+ units                |     220
+ lessons              |    1760
+ league_memberships   |  546036
+ learner_achievements |  773472
+ enrollments          |  750000
+ learners             |  600000
+ daily_activity       | 3626847
+ lesson_attempts      | 3608300
+(11 rows)
+
