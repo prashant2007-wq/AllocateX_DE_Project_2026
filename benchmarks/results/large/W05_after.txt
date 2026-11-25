@@ -1,0 +1,28 @@
+                                                                           QUERY PLAN                                                                            
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Insert on learner_achievements  (cost=1.55..42819.92 rows=0 width=0) (actual time=512.250..512.252 rows=0 loops=1)
+   Conflict Resolution: NOTHING
+   Conflict Arbiter Indexes: learner_achievements_pkey
+   Tuples Inserted: 0
+   Conflicting Tuples: 239403
+   Buffers: shared hit=964449
+   ->  Subquery Scan on "*SELECT*"  (cost=1.55..42819.92 rows=179191 width=16) (actual time=0.034..201.561 rows=239403 loops=1)
+         Buffers: shared hit=6836
+         ->  GroupAggregate  (cost=1.55..41028.01 rows=179191 width=40) (actual time=0.034..185.020 rows=239403 loops=1)
+               Group Key: e.learner_id
+               Filter: (sum(e.total_xp) >= 100)
+               Rows Removed by Filter: 360597
+               Buffers: shared hit=6836
+               InitPlan 1 (returns $0)
+                 ->  Seq Scan on achievements  (cost=0.00..1.12 rows=1 width=4) (actual time=0.010..0.011 rows=1 loops=1)
+                       Filter: ((code)::text = 'XP_100'::text)
+                       Rows Removed by Filter: 9
+                       Buffers: shared hit=1
+               ->  Index Scan using enrollments_pkey on enrollments e  (cost=0.42..30557.24 rows=750000 width=8) (actual time=0.013..70.290 rows=750000 loops=1)
+                     Buffers: shared hit=6835
+ Planning:
+   Buffers: shared hit=159
+ Planning Time: 1.010 ms
+ Execution Time: 512.325 ms
+(24 rows)
+

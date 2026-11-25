@@ -1,0 +1,32 @@
+R01  READ  avg     0.438 ms   Seq Scan on units | Seq Scan on courses | Index Scan using uq_lesson_no on lessons
+R02  READ  avg     0.140 ms   Index Scan using enrollments_pkey on enrollments | Seq Scan on courses
+R03  READ  avg     0.285 ms   Index Only Scan using daily_activity_pkey on daily_activity
+R04  READ  avg     0.307 ms   Index Scan using learners_pkey on learners | Index Scan using idx_attempts_learner_started on lesson_attempts
+R05  READ  avg     0.446 ms   Index Scan using league_memberships_pkey on league_memberships | Index Only Scan using idx_league_week_cohort on league_memberships | Index Scan using learners_pkey on learners
+R06  READ  avg     0.358 ms   Index Scan using uq_unit_no on units | Index Scan using uq_lesson_no on lessons | Index Only Scan using idx_attempts_learner_lesson_done on lesson_attempts
+R07  READ  avg   242.609 ms   Seq Scan on lessons | Index Scan using units_pkey on units | Index Only Scan using idx_attempts_lesson_cover on lesson_attempts
+R08  READ  avg   404.233 ms   Seq Scan on lesson_attempts | Seq Scan on lessons
+R09  READ  avg    18.419 ms   Index Only Scan using idx_daily_date_cover on daily_activity
+R10  READ  avg    40.326 ms   Seq Scan on learners | Index Only Scan using idx_daily_freeze on daily_activity
+R11  READ  avg     0.159 ms   Index Scan using learners_username_key on learners
+R12  READ  avg     0.152 ms   Index Scan using learner_achievements_pkey on learner_achievements | Seq Scan on achievements
+R13  READ  avg   157.828 ms   Index Scan using learners_pkey on learners | Index Only Scan using idx_learners_referred_by on learners
+R14  READ  avg    37.284 ms   Seq Scan on league_memberships
+R15  READ  avg     8.527 ms   Index Scan using idx_learners_joined on learners | Index Scan using daily_activity_pkey on daily_activity
+R16  READ  avg   209.106 ms   Index Scan using learners_username_key on learners
+R17  READ  avg   117.881 ms   Index Only Scan using idx_attempts_started_cover on lesson_attempts
+R18  READ  avg    93.324 ms   Seq Scan on enrollments | Seq Scan on courses
+R19  READ  avg  2251.259 ms   Index Scan using lessons_pkey on lessons | Index Scan using units_pkey on units | Index Scan using idx_attempts_lesson_cover on lesson_attempts
+R20  READ  avg    84.077 ms   Index Only Scan using idx_attempts_started_cover on lesson_attempts
+R21  READ  avg    21.150 ms   Index Only Scan using idx_daily_date_cover on daily_activity
+R22  READ  avg    14.243 ms   Index Only Scan using idx_attempts_started_cover on lesson_attempts
+R23  READ  avg    42.927 ms   Index Only Scan using idx_daily_date_cover on daily_activity | Seq Scan on learners
+R24  READ  avg   556.653 ms   Seq Scan on lesson_attempts | Seq Scan on lessons | Seq Scan on units
+R25  READ  avg  1952.920 ms   Seq Scan on lesson_attempts | Seq Scan on learners
+W01  WRITE avg     1.687 ms   (no scan)
+W02  WRITE avg     0.890 ms   Index Only Scan using idx_attempts_open on lesson_attempts | Index Scan using lesson_attempts_pkey on lesson_attempts
+W03  WRITE avg     2.174 ms   (no scan)
+W04  WRITE avg   158.069 ms   Index Only Scan using idx_league_week_cohort on league_memberships | Index Scan using league_memberships_pkey on league_memberships
+W05  WRITE avg   511.597 ms   Seq Scan on achievements | Index Scan using enrollments_pkey on enrollments
+Workload: sql/06_optimized_queries.sql
+Saved raw plans and summary to /Users/prashantsbisht/AllocateX_DE_Project_2026/benchmarks/results/large

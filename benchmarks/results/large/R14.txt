@@ -1,0 +1,140 @@
+=== R14 run 1 ===
+Finalize GroupAggregate  (cost=11161.32..11163.63 rows=8 width=79) (actual time=50.732..52.377 rows=8 loops=1)
+  Group Key: tier
+  Buffers: shared hit=22 read=5091 dirtied=4412 written=4313
+  ->  Gather Merge  (cost=11161.32..11163.19 rows=16 width=31) (actual time=50.717..52.353 rows=24 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=22 read=5091 dirtied=4412 written=4313
+        ->  Sort  (cost=10161.30..10161.32 rows=8 width=31) (actual time=48.503..48.504 rows=8 loops=3)
+              Sort Key: tier
+              Sort Method: quicksort  Memory: 25kB
+              Buffers: shared hit=22 read=5091 dirtied=4412 written=4313
+              Worker 0:  Sort Method: quicksort  Memory: 25kB
+              Worker 1:  Sort Method: quicksort  Memory: 25kB
+              ->  Partial HashAggregate  (cost=10161.10..10161.18 rows=8 width=31) (actual time=48.461..48.462 rows=8 loops=3)
+                    Group Key: tier
+                    Batches: 1  Memory Usage: 24kB
+                    Buffers: shared hit=6 read=5091 dirtied=4412 written=4313
+                    Worker 0:  Batches: 1  Memory Usage: 24kB
+                    Worker 1:  Batches: 1  Memory Usage: 24kB
+                    ->  Parallel Seq Scan on league_memberships  (cost=0.00..8925.89 rows=82347 width=14) (actual time=0.038..36.079 rows=59279 loops=3)
+                          Filter: ((week_start >= '2026-06-01'::date) AND (week_start <= '2026-06-22'::date))
+                          Rows Removed by Filter: 122733
+                          Buffers: shared hit=6 read=5091 dirtied=4412 written=4313
+Planning:
+  Buffers: shared hit=148
+Planning Time: 0.408 ms
+Execution Time: 52.446 ms
+=== R14 run 2 ===
+Finalize GroupAggregate  (cost=11161.32..11163.63 rows=8 width=79) (actual time=32.216..33.766 rows=8 loops=1)
+  Group Key: tier
+  Buffers: shared hit=120 read=4993
+  ->  Gather Merge  (cost=11161.32..11163.19 rows=16 width=31) (actual time=32.202..33.742 rows=24 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=120 read=4993
+        ->  Sort  (cost=10161.30..10161.32 rows=8 width=31) (actual time=29.880..29.881 rows=8 loops=3)
+              Sort Key: tier
+              Sort Method: quicksort  Memory: 25kB
+              Buffers: shared hit=120 read=4993
+              Worker 0:  Sort Method: quicksort  Memory: 25kB
+              Worker 1:  Sort Method: quicksort  Memory: 25kB
+              ->  Partial HashAggregate  (cost=10161.10..10161.18 rows=8 width=31) (actual time=29.842..29.844 rows=8 loops=3)
+                    Group Key: tier
+                    Batches: 1  Memory Usage: 24kB
+                    Buffers: shared hit=104 read=4993
+                    Worker 0:  Batches: 1  Memory Usage: 24kB
+                    Worker 1:  Batches: 1  Memory Usage: 24kB
+                    ->  Parallel Seq Scan on league_memberships  (cost=0.00..8925.89 rows=82347 width=14) (actual time=0.030..17.809 rows=59279 loops=3)
+                          Filter: ((week_start >= '2026-06-01'::date) AND (week_start <= '2026-06-22'::date))
+                          Rows Removed by Filter: 122733
+                          Buffers: shared hit=104 read=4993
+Planning:
+  Buffers: shared hit=148
+Planning Time: 0.401 ms
+Execution Time: 33.828 ms
+=== R14 run 3 ===
+Finalize GroupAggregate  (cost=11161.32..11163.63 rows=8 width=79) (actual time=31.670..33.199 rows=8 loops=1)
+  Group Key: tier
+  Buffers: shared hit=216 read=4897
+  ->  Gather Merge  (cost=11161.32..11163.19 rows=16 width=31) (actual time=31.658..33.177 rows=24 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=216 read=4897
+        ->  Sort  (cost=10161.30..10161.32 rows=8 width=31) (actual time=29.196..29.197 rows=8 loops=3)
+              Sort Key: tier
+              Sort Method: quicksort  Memory: 25kB
+              Buffers: shared hit=216 read=4897
+              Worker 0:  Sort Method: quicksort  Memory: 25kB
+              Worker 1:  Sort Method: quicksort  Memory: 25kB
+              ->  Partial HashAggregate  (cost=10161.10..10161.18 rows=8 width=31) (actual time=29.160..29.161 rows=8 loops=3)
+                    Group Key: tier
+                    Batches: 1  Memory Usage: 24kB
+                    Buffers: shared hit=200 read=4897
+                    Worker 0:  Batches: 1  Memory Usage: 24kB
+                    Worker 1:  Batches: 1  Memory Usage: 24kB
+                    ->  Parallel Seq Scan on league_memberships  (cost=0.00..8925.89 rows=82347 width=14) (actual time=0.031..17.052 rows=59279 loops=3)
+                          Filter: ((week_start >= '2026-06-01'::date) AND (week_start <= '2026-06-22'::date))
+                          Rows Removed by Filter: 122733
+                          Buffers: shared hit=200 read=4897
+Planning:
+  Buffers: shared hit=148
+Planning Time: 0.392 ms
+Execution Time: 33.263 ms
+=== R14 run 4 ===
+Finalize GroupAggregate  (cost=11161.32..11163.63 rows=8 width=79) (actual time=30.681..32.314 rows=8 loops=1)
+  Group Key: tier
+  Buffers: shared hit=312 read=4801
+  ->  Gather Merge  (cost=11161.32..11163.19 rows=16 width=31) (actual time=30.666..32.289 rows=24 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=312 read=4801
+        ->  Sort  (cost=10161.30..10161.32 rows=8 width=31) (actual time=28.267..28.268 rows=8 loops=3)
+              Sort Key: tier
+              Sort Method: quicksort  Memory: 25kB
+              Buffers: shared hit=312 read=4801
+              Worker 0:  Sort Method: quicksort  Memory: 25kB
+              Worker 1:  Sort Method: quicksort  Memory: 25kB
+              ->  Partial HashAggregate  (cost=10161.10..10161.18 rows=8 width=31) (actual time=28.232..28.233 rows=8 loops=3)
+                    Group Key: tier
+                    Batches: 1  Memory Usage: 24kB
+                    Buffers: shared hit=296 read=4801
+                    Worker 0:  Batches: 1  Memory Usage: 24kB
+                    Worker 1:  Batches: 1  Memory Usage: 24kB
+                    ->  Parallel Seq Scan on league_memberships  (cost=0.00..8925.89 rows=82347 width=14) (actual time=0.029..16.357 rows=59279 loops=3)
+                          Filter: ((week_start >= '2026-06-01'::date) AND (week_start <= '2026-06-22'::date))
+                          Rows Removed by Filter: 122733
+                          Buffers: shared hit=296 read=4801
+Planning:
+  Buffers: shared hit=148
+Planning Time: 0.416 ms
+Execution Time: 32.383 ms
+=== R14 run 5 ===
+Finalize GroupAggregate  (cost=11161.32..11163.63 rows=8 width=79) (actual time=32.870..34.432 rows=8 loops=1)
+  Group Key: tier
+  Buffers: shared hit=408 read=4705
+  ->  Gather Merge  (cost=11161.32..11163.19 rows=16 width=31) (actual time=32.857..34.409 rows=24 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=408 read=4705
+        ->  Sort  (cost=10161.30..10161.32 rows=8 width=31) (actual time=30.609..30.610 rows=8 loops=3)
+              Sort Key: tier
+              Sort Method: quicksort  Memory: 25kB
+              Buffers: shared hit=408 read=4705
+              Worker 0:  Sort Method: quicksort  Memory: 25kB
+              Worker 1:  Sort Method: quicksort  Memory: 25kB
+              ->  Partial HashAggregate  (cost=10161.10..10161.18 rows=8 width=31) (actual time=30.575..30.576 rows=8 loops=3)
+                    Group Key: tier
+                    Batches: 1  Memory Usage: 24kB
+                    Buffers: shared hit=392 read=4705
+                    Worker 0:  Batches: 1  Memory Usage: 24kB
+                    Worker 1:  Batches: 1  Memory Usage: 24kB
+                    ->  Parallel Seq Scan on league_memberships  (cost=0.00..8925.89 rows=82347 width=14) (actual time=0.032..18.640 rows=59279 loops=3)
+                          Filter: ((week_start >= '2026-06-01'::date) AND (week_start <= '2026-06-22'::date))
+                          Rows Removed by Filter: 122733
+                          Buffers: shared hit=392 read=4705
+Planning:
+  Buffers: shared hit=148
+Planning Time: 0.395 ms
+Execution Time: 34.498 ms

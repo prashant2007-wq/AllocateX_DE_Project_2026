@@ -1,0 +1,105 @@
+=== R09 run 1 ===
+Finalize GroupAggregate  (cost=1000.45..8094.57 rows=546 width=12) (actual time=3.978..23.832 rows=30 loops=1)
+  Group Key: activity_date
+  Buffers: shared hit=7 read=783
+  ->  Gather Merge  (cost=1000.45..8083.65 rows=1092 width=12) (actual time=3.883..23.792 rows=81 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=7 read=783
+        ->  Partial GroupAggregate  (cost=0.43..6957.58 rows=546 width=12) (actual time=0.996..14.856 rows=27 loops=3)
+              Group Key: activity_date
+              Buffers: shared hit=7 read=783
+              ->  Parallel Index Only Scan using idx_daily_date_cover on daily_activity  (cost=0.43..6563.97 rows=77630 width=4) (actual time=0.143..11.889 rows=59453 loops=3)
+                    Index Cond: ((activity_date >= '2026-06-01'::date) AND (activity_date <= '2026-06-30'::date))
+                    Filter: (xp > 0)
+                    Rows Removed by Filter: 8530
+                    Heap Fetches: 8
+                    Buffers: shared hit=7 read=783
+Planning:
+  Buffers: shared hit=151
+Planning Time: 0.496 ms
+Execution Time: 23.885 ms
+=== R09 run 2 ===
+Finalize GroupAggregate  (cost=1000.45..8094.57 rows=546 width=12) (actual time=3.832..16.389 rows=30 loops=1)
+  Group Key: activity_date
+  Buffers: shared hit=790
+  ->  Gather Merge  (cost=1000.45..8083.65 rows=1092 width=12) (actual time=3.794..16.365 rows=88 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=790
+        ->  Partial GroupAggregate  (cost=0.43..6957.58 rows=546 width=12) (actual time=0.610..9.054 rows=29 loops=3)
+              Group Key: activity_date
+              Buffers: shared hit=790
+              ->  Parallel Index Only Scan using idx_daily_date_cover on daily_activity  (cost=0.43..6563.97 rows=77630 width=4) (actual time=0.033..6.239 rows=59453 loops=3)
+                    Index Cond: ((activity_date >= '2026-06-01'::date) AND (activity_date <= '2026-06-30'::date))
+                    Filter: (xp > 0)
+                    Rows Removed by Filter: 8530
+                    Heap Fetches: 8
+                    Buffers: shared hit=790
+Planning:
+  Buffers: shared hit=151
+Planning Time: 0.450 ms
+Execution Time: 16.438 ms
+=== R09 run 3 ===
+Finalize GroupAggregate  (cost=1000.45..8094.57 rows=546 width=12) (actual time=4.169..16.766 rows=30 loops=1)
+  Group Key: activity_date
+  Buffers: shared hit=790
+  ->  Gather Merge  (cost=1000.45..8083.65 rows=1092 width=12) (actual time=4.124..16.739 rows=88 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=790
+        ->  Partial GroupAggregate  (cost=0.43..6957.58 rows=546 width=12) (actual time=0.642..9.171 rows=29 loops=3)
+              Group Key: activity_date
+              Buffers: shared hit=790
+              ->  Parallel Index Only Scan using idx_daily_date_cover on daily_activity  (cost=0.43..6563.97 rows=77630 width=4) (actual time=0.032..6.363 rows=59453 loops=3)
+                    Index Cond: ((activity_date >= '2026-06-01'::date) AND (activity_date <= '2026-06-30'::date))
+                    Filter: (xp > 0)
+                    Rows Removed by Filter: 8530
+                    Heap Fetches: 8
+                    Buffers: shared hit=790
+Planning:
+  Buffers: shared hit=151
+Planning Time: 0.447 ms
+Execution Time: 16.817 ms
+=== R09 run 4 ===
+Finalize GroupAggregate  (cost=1000.45..8094.57 rows=546 width=12) (actual time=3.826..16.728 rows=30 loops=1)
+  Group Key: activity_date
+  Buffers: shared hit=789
+  ->  Gather Merge  (cost=1000.45..8083.65 rows=1092 width=12) (actual time=3.797..16.702 rows=88 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=789
+        ->  Partial GroupAggregate  (cost=0.43..6957.58 rows=546 width=12) (actual time=0.619..9.244 rows=29 loops=3)
+              Group Key: activity_date
+              Buffers: shared hit=789
+              ->  Parallel Index Only Scan using idx_daily_date_cover on daily_activity  (cost=0.43..6563.97 rows=77630 width=4) (actual time=0.030..6.407 rows=59453 loops=3)
+                    Index Cond: ((activity_date >= '2026-06-01'::date) AND (activity_date <= '2026-06-30'::date))
+                    Filter: (xp > 0)
+                    Rows Removed by Filter: 8530
+                    Heap Fetches: 8
+                    Buffers: shared hit=789
+Planning:
+  Buffers: shared hit=151
+Planning Time: 0.523 ms
+Execution Time: 16.784 ms
+=== R09 run 5 ===
+Finalize GroupAggregate  (cost=1000.45..8094.57 rows=546 width=12) (actual time=3.906..18.115 rows=30 loops=1)
+  Group Key: activity_date
+  Buffers: shared hit=790
+  ->  Gather Merge  (cost=1000.45..8083.65 rows=1092 width=12) (actual time=3.871..18.079 rows=88 loops=1)
+        Workers Planned: 2
+        Workers Launched: 2
+        Buffers: shared hit=790
+        ->  Partial GroupAggregate  (cost=0.43..6957.58 rows=546 width=12) (actual time=0.621..9.815 rows=29 loops=3)
+              Group Key: activity_date
+              Buffers: shared hit=790
+              ->  Parallel Index Only Scan using idx_daily_date_cover on daily_activity  (cost=0.43..6563.97 rows=77630 width=4) (actual time=0.030..6.896 rows=59453 loops=3)
+                    Index Cond: ((activity_date >= '2026-06-01'::date) AND (activity_date <= '2026-06-30'::date))
+                    Filter: (xp > 0)
+                    Rows Removed by Filter: 8530
+                    Heap Fetches: 8
+                    Buffers: shared hit=790
+Planning:
+  Buffers: shared hit=151
+Planning Time: 0.479 ms
+Execution Time: 18.173 ms

@@ -1,0 +1,50 @@
+=== R22 run 1 ===
+Limit  (cost=4367.94..4369.03 rows=25 width=22) (actual time=13.806..13.810 rows=25 loops=1)
+  Buffers: shared hit=719
+  ->  Index Only Scan using idx_attempts_started_cover on lesson_attempts  (cost=0.43..157592.81 rows=3608292 width=22) (actual time=0.043..10.602 rows=100025 loops=1)
+        Heap Fetches: 106
+        Buffers: shared hit=719
+Planning:
+  Buffers: shared hit=190 read=1
+Planning Time: 0.553 ms
+Execution Time: 13.833 ms
+=== R22 run 2 ===
+Limit  (cost=4367.94..4369.03 rows=25 width=22) (actual time=14.207..14.211 rows=25 loops=1)
+  Buffers: shared hit=719
+  ->  Index Only Scan using idx_attempts_started_cover on lesson_attempts  (cost=0.43..157592.81 rows=3608292 width=22) (actual time=0.063..10.973 rows=100025 loops=1)
+        Heap Fetches: 106
+        Buffers: shared hit=719
+Planning:
+  Buffers: shared hit=191
+Planning Time: 0.562 ms
+Execution Time: 14.235 ms
+=== R22 run 3 ===
+Limit  (cost=4367.94..4369.03 rows=25 width=22) (actual time=14.178..14.182 rows=25 loops=1)
+  Buffers: shared hit=719
+  ->  Index Only Scan using idx_attempts_started_cover on lesson_attempts  (cost=0.43..157592.81 rows=3608292 width=22) (actual time=0.046..10.963 rows=100025 loops=1)
+        Heap Fetches: 106
+        Buffers: shared hit=719
+Planning:
+  Buffers: shared hit=191
+Planning Time: 0.553 ms
+Execution Time: 14.205 ms
+=== R22 run 4 ===
+Limit  (cost=4367.94..4369.03 rows=25 width=22) (actual time=14.448..14.452 rows=25 loops=1)
+  Buffers: shared hit=719
+  ->  Index Only Scan using idx_attempts_started_cover on lesson_attempts  (cost=0.43..157592.81 rows=3608292 width=22) (actual time=0.065..11.214 rows=100025 loops=1)
+        Heap Fetches: 106
+        Buffers: shared hit=719
+Planning:
+  Buffers: shared hit=191
+Planning Time: 0.554 ms
+Execution Time: 14.476 ms
+=== R22 run 5 ===
+Limit  (cost=4367.94..4369.03 rows=25 width=22) (actual time=14.441..14.445 rows=25 loops=1)
+  Buffers: shared hit=719
+  ->  Index Only Scan using idx_attempts_started_cover on lesson_attempts  (cost=0.43..157592.81 rows=3608292 width=22) (actual time=0.045..11.190 rows=100025 loops=1)
+        Heap Fetches: 106
+        Buffers: shared hit=719
+Planning:
+  Buffers: shared hit=191
+Planning Time: 0.540 ms
+Execution Time: 14.467 ms
