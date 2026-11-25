@@ -62,3 +62,8 @@ CREATE INDEX idx_learners_joined
 --   query rewritten to lower(username) LIKE 'karan%' with text_pattern_ops
 CREATE INDEX idx_learners_username_lower
     ON learners (lower(username) text_pattern_ops);
+
+-- W05: FK trigger on learner_achievements.learner_id scans the table without this index;
+--   at large scale (750k+ inserts) this adds ~400ms of trigger overhead
+CREATE INDEX idx_learner_achievements_learner
+    ON learner_achievements (learner_id);
